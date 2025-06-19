@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://8acu1vmofp14"]
-
-[ext_resource type="Script" uid="uid://cvblppgjmctjd" path="res://Scripts/Test.cs" id="1_sy5k4"]
-[ext_resource type="PackedScene" uid="uid://1fen51hug5o8" path="res://UI.tscn" id="2_j2q8x"]
-
-[node name="Node" type="Node"]
-script = ExtResource("1_sy5k4")
-
-[node name="Control" parent="." instance=ExtResource("2_j2q8x")]
