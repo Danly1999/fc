@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://dq3eqtr5icb20"]
+
+[ext_resource type="Script" uid="uid://brfgt6fpqy0ir" path="res://Scripts/LabelHP.cs" id="1_4fa4q"]
+[ext_resource type="Shader" uid="uid://lu33ltj7uhic" path="res://Shaders/enemy.gdshader" id="2_kiluv"]
+[ext_resource type="Texture2D" uid="uid://uprda6lmjn68" path="res://Textures/tauri.svg" id="3_2hifd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sy5k4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3b2b5"]
+paragraph_spacing = -18.0
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iifgy"]
+shader = ExtResource("2_kiluv")
+
+[sub_resource type="Animation" id="Animation_iifgy"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:material:shader_parameter/_MixRange")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qi2p4"]
+resource_name = "enimy_enter"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:material:shader_parameter/_MixRange")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 1, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epg4t"]
+_data = {
+&"RESET": SubResource("Animation_iifgy"),
+&"enimy_enter": SubResource("Animation_qi2p4")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 250.0
+offset_bottom = 350.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -69.5
+offset_right = 69.5
+offset_bottom = 37.0
+grow_horizontal = 2
+texture = SubResource("CanvasTexture_sy5k4")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+label_settings = SubResource("LabelSettings_3b2b5")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_4fa4q")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_iifgy")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -115.5
+offset_right = 103.0
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2hifd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_epg4t")
+}
+autoplay = "enimy_enter"
