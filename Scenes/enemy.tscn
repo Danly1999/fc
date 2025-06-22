@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dq3eqtr5icb20"]
 
 [ext_resource type="Script" uid="uid://brfgt6fpqy0ir" path="res://Scripts/LabelHP.cs" id="1_4fa4q"]
-[ext_resource type="Shader" uid="uid://lu33ltj7uhic" path="res://Shaders/enemy.gdshader" id="2_kiluv"]
+[ext_resource type="Shader" uid="uid://lu33ltj7uhic" path="res://Shaders/VFX_Base.gdshader" id="2_kiluv"]
 [ext_resource type="Texture2D" uid="uid://uprda6lmjn68" path="res://Textures/tauri.svg" id="3_2hifd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sy5k4"]

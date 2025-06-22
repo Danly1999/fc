@@ -1,28 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://1fen51hug5o8"]
+[gd_scene load_steps=6 format=3 uid="uid://1fen51hug5o8"]
 
 [ext_resource type="Script" uid="uid://drto30o730aa2" path="res://Scripts/AddButton.cs" id="2_3b2b5"]
-[ext_resource type="Shader" uid="uid://lu33ltj7uhic" path="res://Shaders/enemy.gdshader" id="2_dewlx"]
 [ext_resource type="PackedScene" uid="uid://dq3eqtr5icb20" path="res://Scenes/enemy.tscn" id="2_g6l6n"]
-[ext_resource type="Texture2D" uid="uid://bt6lgbucids63" path="res://NoiseTexture/Noise214.tga" id="3_hfhsn"]
-[ext_resource type="Texture2D" uid="uid://qrvg8b8gyfhm" path="res://NoiseTexture/Noise79.tga" id="4_48q88"]
-[ext_resource type="Texture2D" uid="uid://b7ukg167k5yin" path="res://Textures/icon.svg" id="4_qwshj"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfhsn"]
-shader = ExtResource("2_dewlx")
-shader_parameter/add_tex = ExtResource("3_hfhsn")
-shader_parameter/noise_tex = ExtResource("4_48q88")
-shader_parameter/uvtiling = Vector2(0.6, 1)
-shader_parameter/sinline_tiling = Vector4(11.525, 0.2, 3, 1)
-shader_parameter/add_color = Color(0.415439, 0.598033, 0.87008, 0.415686)
+[ext_resource type="Material" uid="uid://dyusva1s8ilpd" path="res://Shaders/ButtomBase.tres" id="2_hfhsn"]
+[ext_resource type="Texture2D" uid="uid://uprda6lmjn68" path="res://Textures/tauri.svg" id="3_hfhsn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3b2b5"]
-diffuse_texture = ExtResource("4_qwshj")
+diffuse_texture = ExtResource("3_hfhsn")
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -44,7 +36,7 @@ text = "666
 script = ExtResource("2_3b2b5")
 
 [node name="TextureButton" type="TextureButton" parent="."]
-material = SubResource("ShaderMaterial_hfhsn")
+material = ExtResource("2_hfhsn")
 layout_mode = 0
 offset_left = 125.0
 offset_top = 252.0
