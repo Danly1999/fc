@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://1fen51hug5o8"]
+[gd_scene load_steps=8 format=3 uid="uid://1fen51hug5o8"]
 
 [ext_resource type="Script" uid="uid://drto30o730aa2" path="res://Scripts/AddButton.cs" id="2_3b2b5"]
 [ext_resource type="PackedScene" uid="uid://dq3eqtr5icb20" path="res://Scenes/enemy.tscn" id="2_g6l6n"]
 [ext_resource type="Material" uid="uid://dyusva1s8ilpd" path="res://Shaders/ButtomBase.tres" id="2_hfhsn"]
 [ext_resource type="Texture2D" uid="uid://uprda6lmjn68" path="res://Textures/tauri.svg" id="3_hfhsn"]
+[ext_resource type="Texture2D" uid="uid://ct4n1qy1jljis" path="res://NoiseTexture/fx_Mask43_FT.png" id="3_qwshj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_48q88"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_3b2b5"]
 diffuse_texture = ExtResource("3_hfhsn")
@@ -35,19 +38,33 @@ text = "666
 "
 script = ExtResource("2_3b2b5")
 
-[node name="TextureButton" type="TextureButton" parent="."]
-material = ExtResource("2_hfhsn")
-layout_mode = 0
-offset_left = 125.0
-offset_top = 252.0
-offset_right = 253.0
-offset_bottom = 380.0
-texture_normal = SubResource("CanvasTexture_3b2b5")
-stretch_mode = 0
-script = ExtResource("2_3b2b5")
-
 [node name="Enemy" parent="." instance=ExtResource("2_g6l6n")]
 offset_left = 759.0
 offset_top = 148.0
 offset_right = 1009.0
 offset_bottom = 498.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_48q88")
+layout_mode = 1
+offset_right = 209.0
+offset_bottom = 231.0
+texture = ExtResource("3_qwshj")
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect"]
+material = ExtResource("2_hfhsn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -115.5
+offset_right = 103.0
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("CanvasTexture_3b2b5")
+stretch_mode = 0
+script = ExtResource("2_3b2b5")

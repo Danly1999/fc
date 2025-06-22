@@ -4,6 +4,7 @@ uniform bool _InvertAddUV = false;
 uniform sampler2D _AddTex : repeat_enable;
 uniform vec4 _AddTexTiling = vec4(1.,1.,0.,0.);
 uniform vec4 _AddMaskScale = vec4(1.,1.,1.,1.);
+uniform float _AddScale = 1.;
 uniform bool _UseNoise = false;
 uniform sampler2D _NoiseTex : repeat_enable;
 uniform vec4 _NoiseTexTiling = vec4(1.,1.,0.,0.);
@@ -24,8 +25,8 @@ void fragment() {
 	vec4 maintex = texture(TEXTURE,UV);
 	vec4 noisetex = texture(_NoiseTex,UV*_NoiseTexTiling.rg+TIME*_NoiseTexTiling.ba)*_NoiseScale*vec4(float(_UseNoise));
 	float adduv = pow(UV.r*_AddMaskScale.r,_AddMaskScale.g);
-	float subuv = pow(UV.r*_AddMaskScale.b,_AddMaskScale.a);
-	vec4 addtex = vec4(float(_UseAdd))*add_color.a*add_color*(texture(_AddTex,(_InvertAddUV?UV.gr:UV.rg)*_AddTexTiling.rg+noisetex.xy+TIME*_AddTexTiling.ba)+adduv)*subuv;
+	float subuv = UV.r*_AddMaskScale.b;
+	vec4 addtex = pow(float(_UseAdd)*add_color.a*(texture(_AddTex,(_InvertAddUV?UV.gr:UV.rg)*_AddTexTiling.rg+noisetex.xy+TIME*_AddTexTiling.ba)+adduv).r*_AddScale*subuv,_AddMaskScale.a)*add_color;
 	vec2 rotateUV = clamp(rotate(UV,vec2(.5,.5),0.5),0,1.);
 	vec4 sinline = vec4(float(_UseSin))*add_color*max(0.,pow(sin(rotateUV.r*sinline_tiling.r+(sinline_tiling.a))*sinline_tiling.g,sinline_tiling.b)) ;
 	//COLOR = vec4(sinline);

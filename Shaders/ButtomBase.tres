@@ -1,6 +1,21 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dyusva1s8ilpd"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dyusva1s8ilpd"]
 
 [ext_resource type="Shader" uid="uid://lu33ltj7uhic" path="res://Shaders/VFX_Base.gdshader" id="1_k3d0a"]
+[ext_resource type="Texture2D" uid="uid://1ju1nll80ec3" path="res://NoiseTexture/fx_Noise015.png" id="2_k3d0a"]
+[ext_resource type="Texture2D" uid="uid://qrvg8b8gyfhm" path="res://NoiseTexture/Noise79.tga" id="3_syffn"]
 
 [resource]
 shader = ExtResource("1_k3d0a")
+shader_parameter/_UseAdd = true
+shader_parameter/_InvertAddUV = true
+shader_parameter/_AddTex = ExtResource("2_k3d0a")
+shader_parameter/_AddTexTiling = Vector4(1.245, 0.37, 0, 0.15)
+shader_parameter/_AddMaskScale = Vector4(1.07, 4, 1.2, 0.75)
+shader_parameter/_AddScale = 2.0
+shader_parameter/_UseNoise = true
+shader_parameter/_NoiseTex = ExtResource("3_syffn")
+shader_parameter/_NoiseTexTiling = Vector4(0.295, 1, -0.1, 0)
+shader_parameter/_NoiseScale = 0.2
+shader_parameter/_UseSin = false
+shader_parameter/sinline_tiling = Vector4(1.5, 0.995, 10, 0)
+shader_parameter/add_color = Color(0.372549, 0.635294, 0.858824, 1)
