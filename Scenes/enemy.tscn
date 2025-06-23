@@ -1,8 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq3eqtr5icb20"]
+[gd_scene load_steps=8 format=3 uid="uid://dq3eqtr5icb20"]
 
 [ext_resource type="Script" uid="uid://brfgt6fpqy0ir" path="res://Scripts/LabelHP.cs" id="1_4fa4q"]
-[ext_resource type="Shader" uid="uid://lu33ltj7uhic" path="res://Shaders/VFX_Base.gdshader" id="2_kiluv"]
-[ext_resource type="Texture2D" uid="uid://uprda6lmjn68" path="res://Textures/tauri.svg" id="3_2hifd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sy5k4"]
 
@@ -10,8 +8,7 @@
 paragraph_spacing = -18.0
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iifgy"]
-shader = ExtResource("2_kiluv")
+[sub_resource type="CanvasTexture" id="CanvasTexture_hghv2"]
 
 [sub_resource type="Animation" id="Animation_iifgy"]
 length = 0.001
@@ -80,7 +77,6 @@ vertical_alignment = 1
 script = ExtResource("1_4fa4q")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_iifgy")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -93,7 +89,7 @@ offset_right = 103.0
 offset_bottom = 115.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_2hifd")
+texture = SubResource("CanvasTexture_hghv2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

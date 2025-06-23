@@ -18,4 +18,4 @@ shader_parameter/_NoiseTexTiling = Vector4(0.295, 1, -0.1, 0)
 shader_parameter/_NoiseScale = 0.2
 shader_parameter/_UseSin = false
 shader_parameter/sinline_tiling = Vector4(1.5, 0.995, 10, 0)
-shader_parameter/add_color = Color(0.372549, 0.635294, 0.858824, 1)
+shader_parameter/add_color = Color(0.372549, 0.635294, 0.858824, 0.541176)

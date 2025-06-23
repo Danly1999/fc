@@ -1,15 +1,47 @@
-[gd_scene load_steps=8 format=3 uid="uid://1fen51hug5o8"]
+[gd_scene load_steps=17 format=3 uid="uid://1fen51hug5o8"]
 
 [ext_resource type="Script" uid="uid://drto30o730aa2" path="res://Scripts/AddButton.cs" id="2_3b2b5"]
 [ext_resource type="PackedScene" uid="uid://dq3eqtr5icb20" path="res://Scenes/enemy.tscn" id="2_g6l6n"]
-[ext_resource type="Material" uid="uid://dyusva1s8ilpd" path="res://Shaders/ButtomBase.tres" id="2_hfhsn"]
+[ext_resource type="Material" uid="uid://dyusva1s8ilpd" path="res://Materials/ButtomBase.tres" id="2_hfhsn"]
 [ext_resource type="Texture2D" uid="uid://uprda6lmjn68" path="res://Textures/tauri.svg" id="3_hfhsn"]
-[ext_resource type="Texture2D" uid="uid://ct4n1qy1jljis" path="res://NoiseTexture/fx_Mask43_FT.png" id="3_qwshj"]
+[ext_resource type="Shader" uid="uid://c2edjh8qyfg36" path="res://Shaders/SinEnemy.gdshader" id="5_qwshj"]
+[ext_resource type="Texture2D" uid="uid://bxm8hutf6i8ny" path="res://NoiseTexture/Noise32.png" id="6_48q88"]
+[ext_resource type="Texture2D" uid="uid://b2be53m84dn6x" path="res://NoiseTexture/fx_noise52_tex.tga" id="7_mg6lk"]
+[ext_resource type="Texture2D" uid="uid://cyf4ciixcnfax" path="res://NoiseTexture/Noise172.tga" id="7_xjg7p"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_48q88"]
 
+[sub_resource type="Gradient" id="Gradient_hfhsn"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0127648, 0.25722, 0.271535, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qwshj"]
+gradient = SubResource("Gradient_hfhsn")
+width = 1
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_3b2b5"]
 diffuse_texture = ExtResource("3_hfhsn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qwshj"]
+shader = ExtResource("5_qwshj")
+shader_parameter/_PointTex = ExtResource("7_xjg7p")
+shader_parameter/_PointMaskTex = ExtResource("7_mg6lk")
+shader_parameter/_NoiseTex = ExtResource("6_48q88")
+shader_parameter/_NoiseTiling = Vector2(1, 2)
+shader_parameter/_NoiseScale = Vector4(4.5, 5.5, 0.5, 0.5)
+shader_parameter/height = 0.085
+shader_parameter/weight = 35.0
+shader_parameter/speed = 2.0
+shader_parameter/_Distance = 0.37
+shader_parameter/_Range = 1.86
+
+[sub_resource type="Gradient" id="Gradient_qwshj"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_48q88"]
+gradient = SubResource("Gradient_qwshj")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xjg7p"]
+diffuse_texture = SubResource("GradientTexture1D_48q88")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -49,7 +81,7 @@ material = SubResource("CanvasItemMaterial_48q88")
 layout_mode = 1
 offset_right = 209.0
 offset_bottom = 231.0
-texture = ExtResource("3_qwshj")
+texture = SubResource("GradientTexture1D_qwshj")
 
 [node name="TextureButton" type="TextureButton" parent="TextureRect"]
 material = ExtResource("2_hfhsn")
@@ -68,3 +100,12 @@ grow_vertical = 2
 texture_normal = SubResource("CanvasTexture_3b2b5")
 stretch_mode = 0
 script = ExtResource("2_3b2b5")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qwshj")
+layout_mode = 0
+offset_left = 255.0
+offset_top = 2.0
+offset_right = 555.0
+offset_bottom = 589.0
+texture = SubResource("CanvasTexture_xjg7p")
