@@ -40,12 +40,12 @@ void fragment() {
 	float up = 1.-S(s, 0., (uv.y) + _Distance*distanceMask);
 	float noise = pow(abs(UV.y-0.5)*_NoiseScale.x,_NoiseScale.y);
 	noise *= pow(texture(_NoiseTex,UV*_NoiseTiling+vec2(0,TIME*0.1)).r*_NoiseScale.z,_NoiseScale.w);
-	noise *= max(abs(UV.x-0.5),0.1);
+	noise *= max(abs(UV.x-0.5),0.1)+pow(abs(UV.x-0.5)*2.1,50.);
 	float a = pow(length((UV-0.5)*vec2(1.5,1.))*2.,1.)*noise;
 	float pointTex = texture(_PointTex,UV*vec2(.3,.6)+vec2(TIME*0.01,0)).r;
 	float pointMaskTex = texture(_PointMaskTex,UV*vec2(2,4)+TIME*0.2).r;
 	pointTex = smoothstep(min(pow(pointMaskTex*2.,2.),1.),pointTex,1.)*down*up*15.*pow(abs(UV.x-0.5),2.);
-	vec3 rampcolor = texture(_RampTex,vec2(clamp(noise,0.,1.),0.)).rgb;
+	vec3 rampcolor = texture(_RampTex,vec2(clamp(noise*pow(abs(UV.x-0.5)*3.,0.8)+pow(abs(UV.x-0.5)*2.,50.),0.,1.),0.)).rgb;
 	vec3 sincolor = texture(_Ramp2Tex,vec2(clamp(down*up,0.0,0.99),0.)).rgb;
 	float eyes = circles((UV-0.5-sin(vec2(TIME*1.2,TIME*0.8))*0.02)*vec2(6.,12.)*down*up);
 	COLOR = vec4((mix(rampcolor,sincolor*1.3,down*up)+eyes+pointTex*_PointColor.rgb*5.),1.0-clamp(a,0,1.));

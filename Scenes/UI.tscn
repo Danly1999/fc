@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dq3eqtr5icb20" path="res://Scenes/enemy.tscn" id="2_g6l6n"]
 [ext_resource type="Material" uid="uid://dyusva1s8ilpd" path="res://Materials/ButtomBase.tres" id="2_hfhsn"]
 [ext_resource type="Texture2D" uid="uid://uprda6lmjn68" path="res://Textures/tauri.svg" id="3_hfhsn"]
-[ext_resource type="Material" uid="uid://7ic4xcvx6teq" path="res://Shaders/UI.material" id="5_qwshj"]
+[ext_resource type="Material" uid="uid://7ic4xcvx6teq" path="res://Materials/UI.material" id="5_qwshj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_48q88"]
 

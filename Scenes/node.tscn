@@ -1,16 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://8acu1vmofp14"]
+[gd_scene load_steps=6 format=3 uid="uid://8acu1vmofp14"]
 
 [ext_resource type="Script" uid="uid://cvblppgjmctjd" path="res://Scripts/Test.cs" id="1_sy5k4"]
 [ext_resource type="PackedScene" uid="uid://1fen51hug5o8" path="res://Scenes/UI.tscn" id="2_j2q8x"]
-[ext_resource type="Material" uid="uid://7ic4xcvx6teq" path="res://Shaders/UI.material" id="3_hphxb"]
-[ext_resource type="Shader" uid="uid://bm4gsdtr728xo" path="res://Shaders/iron.gdshader" id="4_1ig23"]
+[ext_resource type="Material" uid="uid://7ic4xcvx6teq" path="res://Materials/UI.material" id="3_hphxb"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1ig23"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtqr5"]
-shader = ExtResource("4_1ig23")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_2itt3"]
 
 [sub_resource type="Environment" id="Environment_qtqr5"]
 background_mode = 3
@@ -30,18 +24,13 @@ offset_bottom = 90.0
 text = "666"
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-31, 200)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 material = ExtResource("3_hphxb")
 position = Vector2(-313, -18)
 scale = Vector2(300, 600)
 texture = SubResource("CanvasTexture_1ig23")
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Sprite2D"]
-material = SubResource("ShaderMaterial_qtqr5")
-position = Vector2(-1.05667, 0)
-scale = Vector2(1.10667, 0.636667)
-texture = SubResource("CanvasTexture_2itt3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qtqr5")
