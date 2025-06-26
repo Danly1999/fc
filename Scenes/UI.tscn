@@ -88,8 +88,8 @@ script = ExtResource("2_3b2b5")
 [node name="TextureRect2" type="TextureRect" parent="."]
 material = ExtResource("5_qwshj")
 layout_mode = 0
-offset_left = 255.0
-offset_top = 2.0
-offset_right = 555.0
-offset_bottom = 589.0
+offset_left = 477.0
+offset_top = -8.0
+offset_right = 777.0
+offset_bottom = 579.0
 texture = SubResource("CanvasTexture_xjg7p")
