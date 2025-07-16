@@ -3,6 +3,8 @@ using System;
 
 public partial class Test : Node
 {
+	[Export]
+	public PropsData propsData;
 	public override void _Ready()
 	{
 		// 加载资源

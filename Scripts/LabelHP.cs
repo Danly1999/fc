@@ -6,7 +6,7 @@ public partial class LabelHP : Label
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GameMamager.Instance.action_hp += OnHpChanged;
+		GameManager.Instance.playerData.action_hp += OnHpChanged;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +16,7 @@ public partial class LabelHP : Label
 
 	public override void _ExitTree()
 	{
-		GameMamager.Instance.action_hp -= OnHpChanged;
+		GameManager.Instance.playerData.action_hp -= OnHpChanged;
 	}
 
 	private void OnHpChanged(float value)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PropsData" load_steps=3 format=3 uid="uid://bupctpo7pj8lw"]
+
+[ext_resource type="Texture2D" uid="uid://b7ukg167k5yin" path="res://Textures/icon.svg" id="1_5isvt"]
+[ext_resource type="Script" uid="uid://cc2f5s0tc5n50" path="res://Scripts/PropsData.cs" id="1_f4uu6"]
+
+[resource]
+script = ExtResource("1_f4uu6")
+Name = "cake"
+Image = ExtResource("1_5isvt")
+Quantity = 0
+Color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://cc2f5s0tc5n50"

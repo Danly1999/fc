@@ -1,31 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://1fen51hug5o8"]
+[gd_scene load_steps=2 format=3 uid="uid://1fen51hug5o8"]
 
-[ext_resource type="Script" uid="uid://drto30o730aa2" path="res://Scripts/AddButton.cs" id="2_3b2b5"]
 [ext_resource type="PackedScene" uid="uid://dq3eqtr5icb20" path="res://Scenes/enemy.tscn" id="2_g6l6n"]
-[ext_resource type="Material" uid="uid://dyusva1s8ilpd" path="res://Materials/ButtomBase.tres" id="2_hfhsn"]
-[ext_resource type="Texture2D" uid="uid://uprda6lmjn68" path="res://Textures/tauri.svg" id="3_hfhsn"]
-[ext_resource type="Material" uid="uid://7ic4xcvx6teq" path="res://Materials/UI.material" id="5_qwshj"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_48q88"]
-
-[sub_resource type="Gradient" id="Gradient_hfhsn"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.0127648, 0.25722, 0.271535, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qwshj"]
-gradient = SubResource("Gradient_hfhsn")
-width = 1
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_3b2b5"]
-diffuse_texture = ExtResource("3_hfhsn")
-
-[sub_resource type="Gradient" id="Gradient_qwshj"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_48q88"]
-gradient = SubResource("Gradient_qwshj")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_xjg7p"]
-diffuse_texture = SubResource("GradientTexture1D_48q88")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -37,59 +12,8 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -231.0
-offset_top = -232.0
-offset_right = -116.0
-offset_bottom = -175.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "666
-"
-script = ExtResource("2_3b2b5")
-
 [node name="Enemy" parent="." instance=ExtResource("2_g6l6n")]
 offset_left = 759.0
 offset_top = 148.0
 offset_right = 1009.0
 offset_bottom = 498.0
-
-[node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("CanvasItemMaterial_48q88")
-layout_mode = 1
-offset_right = 209.0
-offset_bottom = 231.0
-texture = SubResource("GradientTexture1D_qwshj")
-
-[node name="TextureButton" type="TextureButton" parent="TextureRect"]
-material = ExtResource("2_hfhsn")
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -103.0
-offset_top = -115.5
-offset_right = 103.0
-offset_bottom = 115.5
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = SubResource("CanvasTexture_3b2b5")
-stretch_mode = 0
-script = ExtResource("2_3b2b5")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-material = ExtResource("5_qwshj")
-layout_mode = 0
-offset_left = 477.0
-offset_top = -8.0
-offset_right = 777.0
-offset_bottom = 579.0
-texture = SubResource("CanvasTexture_xjg7p")

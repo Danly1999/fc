@@ -21,6 +21,5 @@ project/assembly_name="FC"
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
 viewport/hdr_2d=true

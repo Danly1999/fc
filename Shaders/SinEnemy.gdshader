@@ -24,7 +24,7 @@ float circles(vec2 uv)
 
 	vec3 light_color = vec3(0.9, 0.65, 0.5);
 	float light = 0.1 / distance(normalize(uv), uv);
-	
+
 	if(length(uv) < 1.0){
 		light *= 0.1 / distance(normalize(uv-offset), uv-offset);
 	}

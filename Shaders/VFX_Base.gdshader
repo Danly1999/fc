@@ -30,6 +30,6 @@ void fragment() {
 	vec4 addtex = pow(float(_UseAdd)*add_color.a*(texture(_AddTex,(_InvertAddUV?UV.gr:UV.rg)*_AddTexTiling.rg+noisetex.xy+TIME*_AddTexTiling.ba)+adduv).r*_AddScale*subuv,_AddMaskScale.a)*add_color;
 	vec2 rotateUV = clamp(rotate(UV,vec2(.5,.5),0.5),0,1.);
 	vec4 sinline = vec4(float(_UseSin))*add_color*max(0.,pow(sin(rotateUV.r*sinline_tiling.r+(sinline_tiling.a))*sinline_tiling.g,sinline_tiling.b)) ;
-	
+
     COLOR = maintex + (1.-maintex.a)*(addtex + sinline); // 白色三角形，边缘有平滑
 }

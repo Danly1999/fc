@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq3eqtr5icb20"]
+[gd_scene load_steps=9 format=3 uid="uid://dq3eqtr5icb20"]
 
 [ext_resource type="Script" uid="uid://brfgt6fpqy0ir" path="res://Scripts/LabelHP.cs" id="1_4fa4q"]
+[ext_resource type="Material" uid="uid://7ic4xcvx6teq" path="res://Materials/UI.material" id="2_1f0kj"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_sy5k4"]
 
@@ -77,16 +78,17 @@ vertical_alignment = 1
 script = ExtResource("1_4fa4q")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+material = ExtResource("2_1f0kj")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -103.0
-offset_top = -115.5
-offset_right = 103.0
-offset_bottom = 115.5
+offset_left = -101.0
+offset_top = -178.0
+offset_right = 99.0
+offset_bottom = 222.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_hghv2")
