@@ -19,7 +19,15 @@ config/icon="res://Textures/icon.svg"
 
 project/assembly_name="FC"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrabrush/plugin.cfg")
+
 [rendering]
 
-renderer/rendering_method="mobile"
-viewport/hdr_2d=true
+lights_and_shadows/directional_shadow/size=2024
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=4
+global_illumination/voxel_gi/quality=1
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+lights_and_shadows/positional_shadow/atlas_size=2028
