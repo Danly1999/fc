@@ -293,7 +293,7 @@ metadata/_edit_lock_ = false
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 210.0
 offset_bottom = 90.0
-text = "666"
+text = "GREET"
 
 [node name="SaveButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
@@ -338,6 +338,6 @@ offset_right = -116.0
 offset_bottom = -175.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "666
+text = "GREET
 "
 script = ExtResource("3_hphxb")

@@ -23,6 +23,11 @@ project/assembly_name="FC"
 
 enabled=PackedStringArray("res://addons/terrabrush/plugin.cfg")
 
+[internationalization]
+
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://locales/language.en.translation", "res://locales/language.ja.translation", "res://locales/language.zh.translation")
+
 [rendering]
 
 lights_and_shadows/directional_shadow/size=2024

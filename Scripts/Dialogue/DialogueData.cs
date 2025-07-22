@@ -8,19 +8,8 @@ public partial class DialogueData : Resource
     public bool is_right;
     [Export]
     public Texture2D texture_rect;
-    [ExportGroup("ch")]
     [Export]
-    public string text_ch;
+    public string name;
     [Export]
-    public string name_ch;
-    [ExportGroup("en")]
-    [Export]
-    public string text_en;
-    [Export]
-    public string name_en;
-    [ExportGroup("jp")]
-    [Export]
-    public string name_jp;
-    [Export]
-    public string text_jp;
+    public string text;
 }

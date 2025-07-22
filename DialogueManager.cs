@@ -17,8 +17,9 @@ public partial class DialogueManager : Control
 
     public override void _Ready()
     {
-        name_label.Text = dialogue_data[0].name_ch;
-        text_label.Text = dialogue_data[0].text_ch;
+        name_label.Text = dialogue_data[0].name;
+        GD.Print(Tr(dialogue_data[0].text));
+        text_label.Text = dialogue_data[0].text;
 
         portrait_right.Visible = dialogue_data[0].is_right;
         portrait_left.Visible = !dialogue_data[0].is_right;

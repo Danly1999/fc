@@ -9,12 +9,8 @@
 script = ExtResource("2_vqc68")
 is_right = false
 texture_rect = ExtResource("3_vqc68")
-text_ch = "你好"
-name_ch = "danly"
-text_en = ""
-name_en = ""
-name_jp = ""
-text_jp = ""
+text = "GREET"
+name = "GREET"
 metadata/_custom_type_script = "uid://6ka06pk1l7cr"
 
 [node name="Control" type="Control" node_paths=PackedStringArray("name_label", "text_label", "portrait_left", "portrait_right")]
