@@ -19,10 +19,6 @@ config/icon="res://Textures/icon.svg"
 
 project/assembly_name="FC"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/terrabrush/plugin.cfg")
-
 [internationalization]
 
 locale/translation_remaps={}

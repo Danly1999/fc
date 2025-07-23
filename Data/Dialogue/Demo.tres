@@ -15,10 +15,10 @@ metadata/_custom_type_script = "uid://6ka06pk1l7cr"
 
 [sub_resource type="Resource" id="Resource_7p3kq"]
 script = ExtResource("1_54b55")
-is_right = false
+is_right = true
 texture_rect = ExtResource("3_ehhwl")
 name = "GREET"
-text = "GREET"
+text = "[ghost freq=5.0 span=10.0]撒大苏打实打实阿萨的归属感v程序程序如果特容易[/ghost]"
 metadata/_custom_type_script = "uid://6ka06pk1l7cr"
 
 [resource]

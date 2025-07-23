@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://djtcfpb4qs1xu"]
+[gd_scene load_steps=7 format=3 uid="uid://djtcfpb4qs1xu"]
 
 [ext_resource type="Script" uid="uid://iagwkhovgbm2" path="res://DialogueManager.cs" id="1_cq6to"]
 [ext_resource type="Resource" uid="uid://h1to060dfxtj" path="res://Data/Dialogue/Demo.tres" id="2_vqc68"]
 [ext_resource type="Texture2D" uid="uid://c02cfwb1roloq" path="res://NoiseTexture/fx_Noise030_w.png" id="3_vqc68"]
 [ext_resource type="Texture2D" uid="uid://ct4n1qy1jljis" path="res://NoiseTexture/fx_Mask43_FT.png" id="3_yfiq0"]
+[ext_resource type="Script" uid="uid://d2driddlx5n6g" path="res://Scripts/Dialogue/matrix.gd" id="4_yfiq0"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_gexym"]
+script = ExtResource("4_yfiq0")
+metadata/_custom_type_script = "uid://d2driddlx5n6g"
 
 [node name="Control" type="Control" node_paths=PackedStringArray("name_label", "text_label", "portrait_left", "portrait_right", "check_box")]
 layout_mode = 3
@@ -15,7 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_cq6to")
 dialogue_data = ExtResource("2_vqc68")
 name_label = NodePath("MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/NameLabel")
-text_label = NodePath("MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/TextLabel")
+text_label = NodePath("MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer/RichTextLabel")
 portrait_left = NodePath("MarginContainer/HBoxContainer/LeftRect")
 portrait_right = NodePath("MarginContainer/HBoxContainer/RightRect")
 check_box = NodePath("MarginContainer/HBoxContainer/Panel/MarginContainer")
@@ -67,11 +72,14 @@ layout_mode = 2
 layout_mode = 2
 text = "name"
 
-[node name="TextLabel" type="Label" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-text = "..."
+mouse_filter = 2
+bbcode_enabled = true
+text = "666"
 autowrap_mode = 1
+custom_effects = [SubResource("RichTextEffect_gexym")]
 
 [node name="RightRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)

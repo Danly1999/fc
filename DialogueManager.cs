@@ -9,7 +9,7 @@ public partial class DialogueManager : Control
     [Export]
     public Label name_label;
     [Export]
-    public Label text_label;
+    public RichTextLabel text_label;
     [Export]
     public TextureRect portrait_left;
     [Export]
@@ -17,61 +17,83 @@ public partial class DialogueManager : Control
     [Export]
     public Control check_box;
     [Export] public AudioStreamPlayer TypeSound;
-    [Export] public float Duration = 2.0f;
+    [Export] public float Duration = 0.4f;
     private Tween _tween;
     private string _fullText = "";
-    private int _lastCharCount = 0;
+    private int text_index = 0;
+    private int _totalCharacters = 0;
     public override void _Ready()
     {
+        text_label.BbcodeEnabled = true;
+        text_index = 0;
         check_box.GuiInput += OnGuiInput;
         CreateDialogue();
+        
+        VisibilityChanged += VisibleDialogue;
     }
     private void CreateDialogue()
     {
-        name_label.Text = dialogue_data.dialogue_data[0].name;
-        text_label.Text = dialogue_data.dialogue_data[0].text;
-
-        portrait_right.Visible = dialogue_data.dialogue_data[0].is_right;
-        portrait_left.Visible = !dialogue_data.dialogue_data[0].is_right;
-        if (dialogue_data.dialogue_data[0].is_right)
-        {
-            portrait_right.Texture = dialogue_data.dialogue_data[0].texture_rect;
-        }
-        else
-        {
-            portrait_left.Texture = dialogue_data.dialogue_data[0].texture_rect;
-        }
-    }
-
-    private void OnGuiInput(InputEvent @event)
-    {
-        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
-        {
-            GD.Print("Control被左键点击了!");
-        }
-    }
-        private void StartTypewriterEffect()
-    {
+        name_label.Text = dialogue_data.dialogue_data[text_index].name;
+        text_label.Text = dialogue_data.dialogue_data[text_index].text;
+        _fullText = Tr(dialogue_data.dialogue_data[text_index].text);
+        text_label.Text = _fullText;
+        text_label.VisibleCharacters = 0;
+        _totalCharacters = text_label.GetParsedText().Length;
         _tween = CreateTween();
         _tween.TweenMethod(
             Callable.From<int>(UpdateVisibleCharacters),
             0,
-            _fullText.Length,
-            Duration
+            _totalCharacters,
+            _totalCharacters*0.06f
         );
+
+        portrait_right.Visible = dialogue_data.dialogue_data[text_index].is_right;
+        portrait_left.Visible = !dialogue_data.dialogue_data[text_index].is_right;
+        if (dialogue_data.dialogue_data[text_index].is_right)
+        {
+            portrait_right.Texture = dialogue_data.dialogue_data[text_index].texture_rect;
+        }
+        else
+        {
+            portrait_left.Texture = dialogue_data.dialogue_data[text_index].texture_rect;
+        }
     }
+    public void VisibleDialogue()
+    {
+        if(Visible)
+        {
+            text_index = 0;
+        }else
+        {
+            
+        }
+    }
+    private void OnGuiInput(InputEvent @event)
+    {
+        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && Visible)
+        {
+            if(_tween.IsRunning())
+            {
+                _tween.Stop();
+                text_label.VisibleCharacters = -1;
+                return;
+            }
+            if(text_index < dialogue_data.dialogue_data.Count - 1)
+            {
+                text_index++;
+                CreateDialogue();
+            }
+            else
+            {
+                Visible = false;
+                GD.Print("DialogueManager is not visible");
+            }
+        }
+    }
+
 
     private void UpdateVisibleCharacters(int count)
     {
-        text_label.Text = _fullText.Substring(0, count);
-        
-        // 当有新字符出现时播放音效
-        if (count > _lastCharCount && TypeSound != null)
-        {
-            TypeSound.PitchScale = GD.Randf() * 0.2f + 0.9f; // 随机音高
-            TypeSound.Play();
-        }
-        
-        _lastCharCount = count;
+        text_label.VisibleCharacters = count;
     }
 }
