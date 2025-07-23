@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="DialogueArrayData" load_steps=7 format=3 uid="uid://h1to060dfxtj"]
+
+[ext_resource type="Script" uid="uid://6ka06pk1l7cr" path="res://Scripts/Dialogue/DialogueData.cs" id="1_54b55"]
+[ext_resource type="Script" uid="uid://b86bm2on3nlq5" path="res://Scripts/Dialogue/DialogueArrayData.cs" id="1_u5pp5"]
+[ext_resource type="Texture2D" uid="uid://icrbmkyik53b" path="res://NoiseTexture/Loop/Pixologic  ZBrush  Download Center  Alpha Library.jpg" id="2_ybqdg"]
+[ext_resource type="Texture2D" uid="uid://roea25aeuavv" path="res://NoiseTexture/Loop/Science_006_tex_NRM.tga" id="3_ehhwl"]
+
+[sub_resource type="Resource" id="Resource_4m4hx"]
+script = ExtResource("1_54b55")
+is_right = false
+texture_rect = ExtResource("2_ybqdg")
+name = "GREET"
+text = "GREET"
+metadata/_custom_type_script = "uid://6ka06pk1l7cr"
+
+[sub_resource type="Resource" id="Resource_7p3kq"]
+script = ExtResource("1_54b55")
+is_right = false
+texture_rect = ExtResource("3_ehhwl")
+name = "GREET"
+text = "GREET"
+metadata/_custom_type_script = "uid://6ka06pk1l7cr"
+
+[resource]
+script = ExtResource("1_u5pp5")
+dialogue_data = Array[Object]([SubResource("Resource_4m4hx"), SubResource("Resource_7p3kq")])
+metadata/_custom_type_script = "uid://b86bm2on3nlq5"

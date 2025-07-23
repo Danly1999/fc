@@ -338,6 +338,5 @@ offset_right = -116.0
 offset_bottom = -175.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "GREET
-"
+text = "GREET"
 script = ExtResource("3_hphxb")
